@@ -30,9 +30,10 @@ class MovieRepository {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
                 val filter = HashMap<String , String>()
+                filter["primary_release_year"]=year.toString()
                 filter["api_key"] = "1f14156d794b279bdd31b16eba76a4e6"
                 filter["sort_by"] = "popularity.desc"
-                filter["primary_release_year"]=year.toString()
+
                 movieApiService.getMovies(filter)
             }
 

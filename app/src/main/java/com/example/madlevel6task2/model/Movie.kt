@@ -1,6 +1,7 @@
 package com.example.madlevel6task2.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.util.*
 
 data class Movie (
@@ -13,7 +14,7 @@ data class Movie (
     @SerializedName("id") val id : Int
 
 
-) {
+) : Serializable {
 
     fun getImageUrl() = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/$poster_path"
 }
