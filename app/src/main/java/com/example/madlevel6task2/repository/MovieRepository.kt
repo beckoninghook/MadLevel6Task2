@@ -32,7 +32,7 @@ class MovieRepository {
                 val filter = HashMap<String , String>()
                 filter["api_key"] = "1f14156d794b279bdd31b16eba76a4e6"
                 filter["sort_by"] = "popularity.desc"
-                filter["year"]=year.toString()
+                filter["primary_release_year"]=year.toString()
                 movieApiService.getMovies(filter)
             }
 
