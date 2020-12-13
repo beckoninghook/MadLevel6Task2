@@ -8,9 +8,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MovieApi {
     companion object {
         // The base url off the api.
-        private const val baseUrl = "https://api.themoviedb.org/3/discover/movie?api_key=1f14156d794b279bdd31b16eba76a4e6&sort_by=popularity.desc"
+        private const val baseUrl = "https://api.themoviedb.org/3/discover/"
         /**
-         * @return [TriviaApiService] The service class off the retrofit client.
+         * @return [MovieApiService] The service class off the retrofit client.
          */
         fun createApi(): MovieApiService{
             // Create an OkHttpClient to be able to make a log of the network traffic

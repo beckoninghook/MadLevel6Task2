@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.madlevel6task2.api.MovieApi
 import com.example.madlevel6task2.api.MovieApiService
 import com.example.madlevel6task2.model.Movie
+import com.google.gson.Gson
 import kotlinx.coroutines.withTimeout
 
 class MovieRepository {
@@ -28,12 +29,16 @@ class MovieRepository {
         try {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
-                movieApiService.getMovie(year)
+                val filter = HashMap<String , String>()
+                filter["api_key"] = "1f14156d794b279bdd31b16eba76a4e6"
+                filter["sort_by"] = "popularity.desc"
+                filter["year"]=year.toString()
+                movieApiService.getMovies(filter)
             }
 
-
+                _movies.value = result.results;
         } catch (error: Throwable) {
-            throw MovieRefreshError("Unable to refresh trivia", error)
+            throw MovieRefreshError("Unable to refresh Movies", error)
         }
     }
 

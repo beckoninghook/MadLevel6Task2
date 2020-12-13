@@ -6,14 +6,17 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.madlevel6task2.api.MovieApi
+import com.example.madlevel6task2.api.MovieApiService
+import com.example.madlevel6task2.model.Movie
 import com.example.madlevel6task2.repository.MovieRepository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeout
 
 class MovieViewModel (application: Application) : AndroidViewModel(application) {
 
     private val movieRepository = MovieRepository()
     val movies = movieRepository.movies
-
     private val _errorText: MutableLiveData<String> = MutableLiveData()
 
     /**
@@ -28,14 +31,16 @@ class MovieViewModel (application: Application) : AndroidViewModel(application) 
      * Extension method of lifecycle-viewmodel-ktx library
      */
     fun getMoviesFromYear(year : Int) {
+
         viewModelScope.launch {
             try {
                 //the triviaRepository sets it's own livedata property
                 //our own trivia LiveData property points to te one in that repository
-                movieRepository.getMoviesFromYear(year)
+                //timeout the request after 5 seconds
+            movieRepository.getMoviesFromYear(year)
             } catch (error: MovieRepository.MovieRefreshError) {
                 _errorText.value = error.message
-                Log.e("Trivia error", error.cause.toString())
+                Log.e("Movie error", error.cause.toString())
             }
         }
     }
