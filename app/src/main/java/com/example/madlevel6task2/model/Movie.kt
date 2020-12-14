@@ -8,7 +8,7 @@ data class Movie (
     @SerializedName("backdrop_path") var backdrop_path: String,
     @SerializedName("poster_path") var poster_path: String,
     @SerializedName("title") var title: String,
-    @SerializedName("release_date") var releaseDate: Date,
+    @SerializedName("release_date") var releaseDate: String,
     @SerializedName("vote_average") var vote_average: Double,
     @SerializedName("overview") var overview: String,
     @SerializedName("id") val id : Int
@@ -17,5 +17,5 @@ data class Movie (
 ) : Serializable {
 
     fun getImageUrl() = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/$poster_path"
-    fun getImageBackdropUrl() = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/$backdrop_path"
+    fun getImageBackdropUrl() = "https://image.tmdb.org/t/p/w1920_and_h1080_bestv2/$backdrop_path"
 }

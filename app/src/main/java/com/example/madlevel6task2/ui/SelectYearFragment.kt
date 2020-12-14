@@ -64,7 +64,6 @@ class SelectYearFragment : Fragment() {
 
     private fun onMovieClick(movie: Movie) {
         setFragmentResult(REQ_MOVIE_KEY, bundleOf(Pair(BUNDLE_MOVIE_KEY, movie)))
-        Snackbar.make(rvMovies, "This color is: ${movie.title}", Snackbar.LENGTH_LONG).show()
         findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 

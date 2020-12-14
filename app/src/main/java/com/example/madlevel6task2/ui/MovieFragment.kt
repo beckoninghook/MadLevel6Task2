@@ -62,7 +62,7 @@ class MovieFragment : Fragment() {
     private fun initView(movie: Movie){
         println(movie)
         tvTitle.text = movie.title;
-        tvReleaseDate.text = movie.releaseDate.toString()
+        tvReleaseDate.text = movie.releaseDate
         tvRating.text = movie.vote_average.toString()
         tvRecievedOverview.text = movie.overview
         Glide.with(requireContext()).load(movie.getImageUrl()).into(ivPoster)
