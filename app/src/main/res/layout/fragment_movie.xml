@@ -45,7 +45,7 @@
                     android:layout_weight="1"
                     android:fontFamily="serif"
                     android:text="TITLE VAN FILM"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
